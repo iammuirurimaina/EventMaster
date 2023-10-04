@@ -105,16 +105,19 @@ function LoginForm() {
               <div className="mt-3">
                       {/* Social media login buttons with Font Awesome icons */}
                       <button className="btn btn-danger me-2">
-                        <FaGoogle /> 
+                      <a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjzqdzZ8tuBAxX8TkEAHexxDcIQPAgJ"target="blank"> <FaGoogle /> </a>
                       </button>
+
                       <button className="btn btn-primary me-2">
                         <FaFacebook /> 
                       </button>
                       <button className="btn btn-info me-2">
-                        <FaLinkedin /> 
+                        <a href="https://github.com/iammuirurimaina/Phase4-project"target="blank"> <FaLinkedin/> </a>
+                        
                       </button>
                       <button className="btn btn-secondary me-2">
-                        <FaInstagram /> 
+                      <a href="https://www.instagram.com/homie__wayne/" target="blank"><FaInstagram /></a>
+                      
                       </button>
                     </div>
                   
