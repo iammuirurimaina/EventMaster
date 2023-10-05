@@ -1,99 +1,87 @@
-import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
+import React, {  useState } from "react";
 
 
-function SignUp () {
-  const [customers, setCustomers] = useState([]);
-  const [refreshPage, setRefreshPage] = useState(false);
 
-  useEffect(() => {
-    console.log("FETCH! ");
-    fetch("/customers")
-      .then((res) => res.json())
-      .then((data) => {
-        setCustomers(data);
-        console.log(data);
-      });
-  }, [refreshPage]);
-
-  // const formValidation =yup.object().shape({
-  //   username:yup.string().required("Must enter a username").max(20),
-  //   email:yup.string().email("Invalid email").required("Must enter email"),
-  //   password:yup.string().required().max(20),
-  // });
-
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      password: "",
-      birthdate: "",
-    },
-
-    // validationSchema: formValidation,
-    onSubmit: (values) => {
-      fetch("user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values, null, 2),
-      }).then((res) => {
-        if (res.status === 200) {
-          setRefreshPage(!refreshPage);
-        }
-      });
-    },
+function SignUp ({ signUp }) {
+  const [customers, setCustomers] = useState({
+    username: "",
+    email: "",
+    password: "",
+    birthdate: ""
   });
+
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/signUp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+      body: JSON.stringify({ customers }),
+    })
+    .then((r) => r.json())
+    .then((user) => signUp(user) )
+  }
 
   return (
     <div>
       <h2>Sign Up</h2>
-      <form onSubmit={formik.handleSubmit}>
+
+      <br></br>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username: </label>
           <input
             type="username"
             id="username"
             name="username"
-            value={formik.values.username}
-            onChange={formik.handleChange}
-          />
-        </div>
+            value={customers}
+            onChange={(e) =>
+              setCustomers(e.target.value )
+            }
+            />
+            </div>
 
+            <br></br>
+      
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email: </label>
           <input
             type="email"
             id="email"
             name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
+            value={customers}
+            onChange={(e) => setCustomers( e.target.value)}
           />
         </div>
 
+        <br></br>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             id="password"
             name="password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
+            value={customers}
+            onChange={(e) => setCustomers(e.target.value)}
           />
         </div>
 
+        <br></br>
+
         <div>
-          <label htmlFor="birthdate">Date of Birth</label>
+          <label htmlFor="birthdate">Date of Birth: </label>
           <input
             type="date"
-            id="birthdate"
-            name="birthdate"
-            value={formik.values.birthdate}
-            onChange={formik.handleChange}
+              id="birthdate"
+              name="birthdate"
+              value={customers}
+            onChange={(e) => setCustomers(e.target.value)}
           />
         </div>
+
+        <br></br>
 
         <div>
           <button type="submit">Sign up</button>
@@ -107,7 +95,7 @@ export default SignUp;
 
 
 // import React from "react";
-// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import {  Form, Field, ErrorMessage } from ";
 // import * as Yup from "yup";
 // import { FaGoogle, FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
@@ -143,8 +131,7 @@ export default SignUp;
 //           <div className="card">
 //             <div className="card-header">Log in</div>
 //             <div className="card-body">
-//               <Formik
-//                 initialValues={initialValues}
+//               <//                 initialValues={initialValues}
 //                 validationSchema={validationSchema}
 //                 onSubmit={handleSubmit}
 //               >
@@ -206,7 +193,7 @@ export default SignUp;
 //                     </button>
 //                   </Form>
 //                 )}
-//               </Formik>
+//               </
 //               <div className="mt-3">
 //                 <a href="/forgot-password">Forgot Password?</a>
 //               </div>
