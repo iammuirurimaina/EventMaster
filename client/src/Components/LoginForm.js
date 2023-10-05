@@ -1,21 +1,17 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { FaGoogle, FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
-
-
-
-
+import { FaGoogle, FaFacebook, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
+import './Login.css';
+import image from "./../Assets/loginimage.jpg";
 
 function LoginForm() {
   const initialValues = {
-    username: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Username is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
@@ -23,12 +19,14 @@ function LoginForm() {
   const handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
       console.log("Logging in with:", values);
-    
     }, 1000);
     setSubmitting(false);
   };
 
   return (
+    <div id="login" style={{ backgroundImage: `url(${image})` }}>
+      <div className="container mt-5">
+    
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -42,23 +40,7 @@ function LoginForm() {
               >
                 {({ isSubmitting }) => (
                   <Form>
-                    <div className="mb-3">
-                      <label htmlFor="username" className="form-label">
-                        Username
-                      </label>
-                      <Field
-                        type="text"
-                        name="username"
-                        className="form-control"
-                        placeholder="Username"
-                      />
-                      <ErrorMessage
-                        name="username"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </div>
-
+                   
                     <div className="mb-3">
                       <label htmlFor="email" className="form-label">
                         Email
@@ -112,7 +94,7 @@ function LoginForm() {
                         <FaFacebook /> 
                       </button>
                       <button className="btn btn-info me-2">
-                        <a href="https://github.com/iammuirurimaina/Phase4-project"target="blank"> <FaLinkedin/> </a>
+                        <a href="https://github.com/iammuirurimaina/Phase4-project"target="blank"> <FaGithub/> </a>
                         
                       </button>
                       <button className="btn btn-secondary me-2">
@@ -126,6 +108,8 @@ function LoginForm() {
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
