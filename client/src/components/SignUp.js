@@ -1,109 +1,111 @@
-// // import React, { useEffect, useState } from "react";
-// import { useFormik } from "formik";
-// import * as yup from "yup";
+import React, { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 
-// const SignUp = () => {
-//   const [customers, setCustomers] = useState([]);
-//   const [refreshPage, setRefreshPage] = useState(false);
+function SignUp () {
+  const [customers, setCustomers] = useState([]);
+  const [refreshPage, setRefreshPage] = useState(false);
 
-//   useEffect(() => {
-//     console.log("FETCH! ");
-//     fetch("/customers")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setCustomers(data);
-//         console.log(data);
-//       });
-//   }, [refreshPage]);
+  useEffect(() => {
+    console.log("FETCH! ");
+    fetch("/customers")
+      .then((res) => res.json())
+      .then((data) => {
+        setCustomers(data);
+        console.log(data);
+      });
+  }, [refreshPage]);
 
-// //   const formValidation =yup.object().shape({
-// //     username:yup.string().required("Must enter a username").max(20),
-// //     email:yup.string().email("Invalid email").required("Must enter email"),
-// //     password:yup.string().required().max(20),
-// //   });
+  // const formValidation =yup.object().shape({
+  //   username:yup.string().required("Must enter a username").max(20),
+  //   email:yup.string().email("Invalid email").required("Must enter email"),
+  //   password:yup.string().required().max(20),
+  // });
 
-//   const formik = useFormik({
-//     initialValues: {
-//       username: "",
-//       email: "",
-//       password: "",
-//       birthdate: "",
-//     },
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      birthdate: "",
+    },
 
-//     validationSchema: formValidation,
-//     onSubmit: (values) => {
-//       fetch("user", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(values, null, 2),
-//       }).then((res) => {
-//         if (res.status === 200) {
-//           setRefreshPage(!refreshPage);
-//         }
-//       });
-//     },
-//   });
+    // validationSchema: formValidation,
+    onSubmit: (values) => {
+      fetch("user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values, null, 2),
+      }).then((res) => {
+        if (res.status === 200) {
+          setRefreshPage(!refreshPage);
+        }
+      });
+    },
+  });
 
-//   return (
-//     <div>
-//       <h2>Sign Up</h2>
-//       {/* <form onSubmit={formik.handleSubmit}>
-//         <div>
-//           <label htmlFor="username">Username</label>
-//           <input
-//             type="username"
-//             id="username"
-//             name="username"
-//             value={formik.values.username}
-//             onChange={formik.handleChange}
-//           />
-//         </div>
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={formik.handleSubmit}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            value={formik.values.username}
+            onChange={formik.handleChange}
+          />
+        </div>
 
-//         <div>
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             name="email"
-//             value={formik.values.email}
-//             onChange={formik.handleChange}
-//           />
-//         </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+          />
+        </div>
 
-//         <div>
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={formik.values.password}
-//             onChange={formik.handleChange}
-//           />
-//         </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+          />
+        </div>
 
-//         <div>
-//           <label htmlFor="birthdate">Date of Birth</label>
-//           <input
-//             type="date"
-//             id="birthdate"
-//             name="birthdate"
-//             value={formik.values.birthdate}
-//             onChange={formik.handleChange}
-//           />
-//         </div>
+        <div>
+          <label htmlFor="birthdate">Date of Birth</label>
+          <input
+            type="date"
+            id="birthdate"
+            name="birthdate"
+            value={formik.values.birthdate}
+            onChange={formik.handleChange}
+          />
+        </div>
 
-//         <div>
-//           <button type="submit">Sign up</button>
-//         </div>
-//       </form> */}
-//     </div>
-//   );
-// };
+        <div>
+          <button type="submit">Sign up</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
-// export default SignUp;
+export default SignUp;
+
+
 // import React from "react";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
 // import * as Yup from "yup";
