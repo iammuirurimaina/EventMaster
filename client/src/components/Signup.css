@@ -1,0 +1,36 @@
+#title {
+    color: #007bff;
+  text-align: center;
+  }
+
+  .inputs {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .background {
+    background-image: url(https://th.bing.com/th/id/R.fd53aeeafa1d0bec7f7271c7e1e30bc0?rik=CUT8ldxbteavQA&pid=ImgRaw&r=0); 
+    margin: 0; 
+    padding: 0; 
+  }

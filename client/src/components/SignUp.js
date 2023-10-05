@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-
+import "./Signup.css"
 
 
 function SignUp ({ signUp }) {
@@ -25,7 +25,7 @@ function SignUp ({ signUp }) {
   }
 
   return (
-    <div>
+    <div class = "background">
       <h2 id = "title">Sign Up</h2>
 
       <br></br>
@@ -84,7 +84,7 @@ function SignUp ({ signUp }) {
         <br></br>
 
         <div>
-          <button type="submit" value="submit">Sign up</button>
+          <button type="submit" value="submit" class = "button">Sign up</button>
         </div>
       </form>
     </div>
