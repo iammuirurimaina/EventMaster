@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response, jsonify
 
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from models import db, Event
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+CORS(app)
 
 
 migrate = Migrate(app, db)
@@ -29,7 +31,7 @@ def add_event():
     db.session.add(new_event)
     db.session.commit()
 
-    return jsonify({
+    return make_response(jsonify({
         'id': new_event.id,
         'name': new_event.name,
         'date': new_event.date,
@@ -37,7 +39,7 @@ def add_event():
         'tickets_available': new_event.tickets_available,
         'image_url': new_event.image_url,
         'category': new_event.category
-    })
+    }), 201)
 
 # Get All Events
 @app.route('/events', methods=['GET'])
@@ -56,7 +58,7 @@ def get_events():
         }
         event_list.append(event_data)
 
-    return jsonify(event_list)
+    return make_response(jsonify(event_list), 200)
 
 # Get Single Event
 @app.route('/events/<int:event_id>', methods=['GET'])
@@ -72,7 +74,7 @@ def get_event(event_id):
             'image_url': event.image_url,
             'category': event.category
         }
-        return jsonify(event_data)
+        return make_response(jsonify(event_data), 200)
     else:
         return jsonify({'message': 'Event not found'}), 404
 
@@ -83,12 +85,12 @@ def update_event(event_id):
     event = Event.query.get(event_id)
 
     if event:
-        event.name = request.json['name']
-        event.date = request.json['date']
-        event.location = request.json['location']
-        event.tickets_available = request.json['tickets_available']
-        event.image_url = request.json.get('image_url', None)
-        event.category = request.json['category']
+        event.name = request.json.get('name', event.name)
+        event.date = request.json.get('date', event.date)
+        event.location = request.json.get('location', event.location)
+        event.tickets_available = request.json.get('tickets_available', event.tickets_available)
+        event.image_url = request.json.get('image_url', event.image_url)
+        event.category = request.json.get('category', event.category)
 
         db.session.commit()
 
