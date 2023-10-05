@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import SignUp from './components/SignUp';
+
+
+import DisplayEvents from './components/DisplayEvents';
 
 function App() {
   return (
     <div className="App">
-      <SignUp/>
+      
+      <DisplayEvents></DisplayEvents>
       
       {/*  */}
     </div>
