@@ -1,4 +1,5 @@
 import React from 'react';
+/* New App.js */
 
 import Hero from './Hero';
 import DisplayEvents from './DisplayEvents';
@@ -7,7 +8,7 @@ function App() {
     <div>
       <Hero />
 
-      {/* <Logo /> */}
+      
       
       <DisplayEvents />
     </div>
