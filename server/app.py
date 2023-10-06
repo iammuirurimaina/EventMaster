@@ -122,32 +122,32 @@ def get_event(event_id):
         return make_response(jsonify(event_data), 200)
     else:
         return jsonify({'message': 'Event not found'}), 404
-@app.route('/events', methods=['POST'])
-def add_event():
-    try:
-        # Parse the request data
-        data = request.get_json()
-        name = data.get('name')
-        date = data.get(datetime('date'))
-        location = data.get('location')
-        tickets_available = data.get('tickets_available')
-        image_url = data.get('image_url', None)
-        category = data.get('category')
+# @app.route('/events', methods=['POST'])
+# def add_event():
+#     try:
+#         # Parse the request data
+#         data = request.get_json()
+#         name = data.get('name')
+#         date = data.get(datetime('date'))
+#         location = data.get('location')
+#         tickets_available = data.get('tickets_available')
+#         image_url = data.get('image_url', None)
+#         category = data.get('category')
 
-        # Check if all required fields are provided
-        if not name or not date or not location or not tickets_available or not category:
-            return jsonify({'message': 'Name, date, location, tickets_available, and category are required'}), 400
+#         # Check if all required fields are provided
+#         if not name or not date or not location or not tickets_available or not category:
+#             return jsonify({'message': 'Name, date, location, tickets_available, and category are required'}), 400
 
-        # Create a new event object
-        new_event = Event(name=name, date=date, location=location, tickets_available=tickets_available, image_url=image_url, category=category)
+#         # Create a new event object
+#         new_event = Event(name=name, date=date, location=location, tickets_available=tickets_available, image_url=image_url, category=category)
 
-        # Add the event to the database
-        db.session.add(new_event)
-        db.session.commit()
+#         # Add the event to the database
+#         db.session.add(new_event)
+#         db.session.commit()
 
-        return jsonify({'message': 'Event created successfully', 'event_id': new_event.id}), 201
-    except Exception as e:
-        return jsonify({'message': str(e)}), 500
+#         return jsonify({'message': 'Event created successfully', 'event_id': new_event.id}), 201
+#     except Exception as e:
+#         return jsonify({'message': str(e)}), 500
 
 # Delete an Event
 @app.route('/events/<int:event_id>', methods=['DELETE'])
