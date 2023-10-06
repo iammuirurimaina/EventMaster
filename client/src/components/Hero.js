@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import './Home.css'
 
 function Hero() {
   return (
@@ -7,7 +8,8 @@ function Hero() {
     <img
       src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
       alt='concert'
-      className="w-full h-auto"
+      
+
     />
     
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
