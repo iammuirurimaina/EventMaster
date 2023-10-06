@@ -38,6 +38,7 @@ function EventForm({ onAddEvent }) {
           <label>Name:</label>
           <input
             type="text"
+            className="form-control"
             name="name"
             value={eventData.name}
             onChange={handleChange}
@@ -48,6 +49,7 @@ function EventForm({ onAddEvent }) {
           <label>Date:</label>
           <input
             type="date"
+            className="form-control"
             name="date"
             value={eventData.date}
             onChange={handleChange}
@@ -58,6 +60,7 @@ function EventForm({ onAddEvent }) {
           <label>Location:</label>
           <input
             type="text"
+            className="form-control"
             name="location"
             value={eventData.location}
             onChange={handleChange}
@@ -68,6 +71,7 @@ function EventForm({ onAddEvent }) {
           <label>Tickets Available:</label>
           <input
             type="number"
+            className="form-control"
             name="tickets_available"
             value={eventData.tickets_available}
             onChange={handleChange}
@@ -78,6 +82,7 @@ function EventForm({ onAddEvent }) {
           <label>Image URL:</label>
           <input
             type="text"
+            className="form-control"
             name="image_url"
             value={eventData.image_url}
             onChange={handleChange}
@@ -87,13 +92,14 @@ function EventForm({ onAddEvent }) {
           <label>Category:</label>
           <input
             type="text"
+            className="form-control"
             name="category"
             value={eventData.category}
             onChange={handleChange}
             required
           />
         </div>
-        <button type="submit">Add Event</button>
+        <button type="submit" className="btn btn-primary">Add Event</button>
       </form>
     </div>
   );

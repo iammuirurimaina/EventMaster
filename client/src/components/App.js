@@ -9,6 +9,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
 import EventForm from './EventForm';
+import AboutUs from './AboutUs';
 
 
 // ...
@@ -100,20 +101,12 @@ function App() {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
         <Route path="/add-event" element={<EventForm onAddEvent={handleAddEvent} />} />
+        <Route path="/about" element={<AboutUs />} /> {/* Add the About Us route */}
    
         
       </Routes>
       {/* Render the EventCards with the onBuyTickets function */}
-      <div className="event-list">
-        <h2>Upcoming Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {events.map((event) => (
-            <div key={event.id}>
-              <EventCard event={event} />
-            </div>
-          ))}
-        </div>
-      </div>
+     
     </>
   );
 }
