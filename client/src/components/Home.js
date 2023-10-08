@@ -1,12 +1,12 @@
 import Hero from './Hero';
-import DisplayEvents from './DisplayEvents';
+
 import './Home.css'
 
-function Home (){
+function Home ({user}){
     return(
         <div >
         <Hero />
-        <DisplayEvents />
+        
 
         </div>
 

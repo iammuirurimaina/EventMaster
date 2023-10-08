@@ -16,7 +16,7 @@ function Hero() {
    
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Welcome to EventMaster</h1>
       <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8">Find and buy tickets for your favorite events</p>
-      <SearchBar />
+      
     </div>
     </div>
   );

@@ -1,3 +1,31 @@
 #app{
   width: 100vh;
 }
+#Navbar{
+  position: relative;
+  height: 30px;
+  background: transparent;
+  position: sticky;
+
+
+}
+#home{
+  float:left;
+  color: red;
+  
+}
+nav{
+  position: sticky;
+}
+#links{
+  float: right;
+  right: 20px;
+  padding-right: 10px;
+}
+ul{
+  display: flex;
+}
+li{
+  padding: 10px;
+  
+}

@@ -80,10 +80,10 @@ Before you begin, ensure you have met the following requirements:
 
 4. Set up the React frontend:
 
-   - Change into the `frontend` directory:
+   - Change into the `Client` directory:
 
      ```shell
-     cd frontend
+     cd Client
      ```
 
    - Install JavaScript dependencies:
@@ -92,23 +92,13 @@ Before you begin, ensure you have met the following requirements:
      npm install
      ```
 
-5. Configure environment variables:
-
-   Create a `.env` file in the project root directory and set the following environment variables:
-
-   ```
-   REACT_APP_API_URL=http://localhost:5000
-   ```
-
-   Replace `http://localhost:5000` with the URL of your Flask backend if necessary.
-
-6. Start the Flask backend:
+5. Start the Flask backend:
 
    ```shell
    flask run
    ```
 
-7. Start the React frontend (from the `frontend` directory):
+6. Start the React frontend (from the `frontend` directory):
 
    ```shell
    npm start

@@ -1,37 +1,64 @@
-// NavBar.js
 import React from "react";
 import { Link } from "react-router-dom";
+import "./App.css"
 
 function NavBar({ user, onLogout }) {
   return (
-    <div className="bg-black p-4">
-      <nav className="container mx-auto flex justify-between items-center">
+    <div id="Navbar">
+      <nav class="Nav">
+        <div id="home">
         <Link to="/" className="text-red hover:text-gray-300">
           Home
         </Link>
-        <Link to="/about" className="text red hover:text-gray-300 ml-4">
+        </div>
+        <ul id="links">
+
+          
+        <li>
+        <Link to="/events" >
+          Events
+        </Link>
+        </li>
+        <li>
+        <Link to="/about" >
           About
         </Link>
+        </li>
+        
         {user ? (
-          // Display "Logout" when the user is authenticated
-          <button
-            onClick={onLogout}
-            className="text-white hover:text-gray-300 ml-4"
-          >
-            Logout
-          </button>
+          // Display "My Tickets" and "Logout" when the user is authenticated
+          <>
+            <li>
+          
+            <Link to="/my-tickets" >
+              MyTickets
+            </Link>
+            </li>
+            <li>
+            <button
+              onClick={onLogout}
+              
+            >
+              Logout
+            </button>
+            </li>
+          </>
         ) : (
           // Display "Login" and "Signup" when the user is not authenticated
           <>
-            <Link to="/login" className="text-red hover:text-gray-300 ml-4">
+          <li>
+            <Link to="/login" >
               Login
             </Link>
-            <Link to="/signup" className="text-red hover:text-gray-300 ml-4">
+            </li>
+            <li>
+            <Link to="/signup" >
               Signup
             </Link>
-       
+            </li>
           </>
         )}
+        </ul>
       </nav>
     </div>
   );

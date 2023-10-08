@@ -8,8 +8,10 @@ import MyTickets from './MyTickets';
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
-import EventForm from './EventForm';
+
 import AboutUs from './AboutUs';
+import DisplayEvents from './DisplayEvents';
+import Events from './Events';
 
 
 // ...
@@ -48,49 +50,7 @@ function App() {
     navigate('/');
     setUser(null);
   }
-  function handleAddEvent(newEvent){
-    // Here, you can send a POST request to your API to add the new event
-    // Example:
-    fetch("/events", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newEvent),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Event added:", data);
-        
-      })
-      .catch((error) => {
-        console.error("Error adding event:", error);
-      });
-  };
-  
 
-  // // Function to handle buying tickets
-  // function handleBuyTickets(eventId) {
-  //   const user_id = user.id; // Replace this with the actual user ID
-
-  //   fetch(`/buy_tickets/${eventId}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ user_id }),
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         // Refresh the events list after buying tickets
-  //         fetch('/events')
-  //           .then((response) => {
-  //             if (response.ok) {
-  //               response.json().then((data) => setEvents(data));
-  //             }
-  //           });
-  //       }
-  //     });
 
 
   return (
@@ -100,12 +60,13 @@ function App() {
         <Route path="/" element={<Home user={user} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
-        <Route path="/add-event" element={<EventForm onAddEvent={handleAddEvent} />} />
+        <Route path="/my-tickets" element={<MyTickets user={user} />} />
         <Route path="/about" element={<AboutUs />} /> {/* Add the About Us route */}
+        <Route path="/events" element={<Events />} /> 
    
         
       </Routes>
-      {/* Render the EventCards with the onBuyTickets function */}
+      
      
     </>
   );
