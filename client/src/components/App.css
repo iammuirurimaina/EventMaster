@@ -1,31 +1,81 @@
-#app{
-  width: 100vh;
+css
+/* Navbar container */
+#Navbar {
+ position: sticky;
+ top: 0;
+ background-color: white;
+ transition: background-color 0.3s ease-in-out;
+ box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+ z-index: 1000;
 }
-#Navbar{
+
+/* Navbar styling */
+.Nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 0.5rem 1rem;
+ font-family: Georgia, 'Times New Roman', Times, serif
+ ;
+}
+
+/* Navbar links */
+.Nav .nav-link:hover {
+  background-color:yellow; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+  border-radius: 5px; /* Add a subtle border-radius */
+  transform: scale(1.05); /* Slight scale-up on hover for a nice effect */
+  transition: background-color 0.3s, color 0.3s, border-radius 0.3s, transform 0.3s;
+}
+
+/* Dropdown styling */
+.Nav .dropdown {
   position: relative;
-  height: 30px;
-  background: transparent;
-  position: sticky;
+  display: inline-block;
+  font-family: 'Font2', sans-serif;
+}
 
+.Nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px; /* Add border-radius to the dropdown */
+  overflow: hidden; /* Hide overflow content if any */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0); /* Start with scaleY(0) to hide dropdown */
+}
 
+.Nav .dropdown-content a {
+  color: #333; /* Change text color for dropdown items */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
 }
-#home{
-  float:left;
-  color: red;
-  
+
+.Nav .dropdown-content a:hover {
+  background-color: #ff5733; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
 }
-nav{
-  position: sticky;
+
+.Nav .dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: scaleY(1); /* Show dropdown with scaleY(1) */
 }
-#links{
-  float: right;
-  right: 20px;
-  padding-right: 10px;
+
+.Nav .dropdown:hover .nav-link {
+  background-color: #ff5733; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
 }
-ul{
-  display: flex;
-}
-li{
-  padding: 10px;
-  
+
+/* Active link styling */
+.Nav .nav-link.active {
+  font-weight: bold;
+  color: #ff5733; /* Change text color for active link */
 }

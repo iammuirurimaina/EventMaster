@@ -8,7 +8,7 @@ import MyTickets from './MyTickets';
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
-
+import './App.css';
 import AboutUs from './AboutUs';
 import DisplayEvents from './DisplayEvents';
 import Events from './Events';
