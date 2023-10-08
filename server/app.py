@@ -62,8 +62,15 @@ def login():
         return jsonify({'message': 'Invalid credentials'}), 401
     
     session['user_id'] = user.id
+    
 
-    return jsonify({'message': 'Login successful'}), 200
+    return jsonify(user.id, {'message': 'Login successful'}), 200
+
+@app.route('/logout', methods=['DELETE'])
+def Logout():
+    session['user_id'] = None
+    return jsonify({'message': '204: No Content'}), 204
+
 
 class CheckSession(Resource):
 
@@ -75,6 +82,8 @@ class CheckSession(Resource):
             return jsonify({'message': '401: Not Authorized'}), 401
 
 api.add_resource(CheckSession, '/check_session')
+
+
 
 
 
@@ -118,11 +127,56 @@ def get_event(event_id):
         return make_response(jsonify(event_data), 200)
     else:
         return jsonify({'message': 'Event not found'}), 404
+    
+# Add Event route and function
+@app.route('/events', methods=['POST'])
+def add_event():
+    data = request.get_json()
+
+    name = data.get('name')
+    date = data.get('date')
+    location = data.get('location')
+    tickets_available = data.get('tickets_available')
+    image_url = data.get('image_url')
+    category = data.get('category')
+   
+
+    if not name or not date or not location or not tickets_available or not category:
+        return jsonify({'message': 'Missing required fields'}), 400
+
+    # Create a new event instance
+    new_event = Event(name=name, date=date, location=location, 
+                      tickets_available=tickets_available, 
+                      image_url=image_url, category=category)  
+
+    db.session.add(new_event)
+    db.session.commit()
+
+    return jsonify({'message': 'Event added successfully'}), 201
+# Update Event route and function
+@app.route('/events/<int:event_id>', methods=['PATCH'])
+def update_event(event_id):
+    event = Event.query.get(event_id)
+
+    if not event:
+        return jsonify({'message': 'Event not found'}), 404
+
+    data = request.get_json()
+    event.name = data.get('name', event.name)
+    event.date = data.get('date', event.date)
+    event.location = data.get('location', event.location)
+    event.tickets_available = data.get('tickets_available', event.tickets_available)
+    event.image_url = data.get('image_url', event.image_url)
+    event.category = data.get('category', event.category)
+
+    db.session.commit()
+
+    return jsonify({'message': 'Event updated successfully'}), 200
  # Ticket Purchase route and function
 @app.route('/buy-tickets/<int:event_id>', methods=['POST'])
 def buy_tickets(event_id):
     data = request.get_json()
-    user_id = data.get('user_id')  # Make sure to send user_id from the frontend
+    user_id =  session['user_id']
     num_tickets = data.get('num_tickets')
 
     event = Event.query.get(event_id)
@@ -142,6 +196,34 @@ def buy_tickets(event_id):
     db.session.commit()
 
     return jsonify({'message': 'Tickets purchased successfully'}), 201
+
+@app.route('/ticket/<int:id>', methods=['GET'])
+def get_ticket(id):
+    ticket = Ticket.query.get(id)
+    if ticket:
+        ticket_data = {
+            'id': ticket.id,
+            'user_id': ticket.user_id,
+            'event_id': ticket.event_id
+
+        }
+        return make_response(jsonify(ticket_data), 200)
+    else:
+        return jsonify({'message': 'Ticket not found'}), 404
+
+# class Logout(Resource):
+#     session['user_id'] = None
+#     return jsonify({'message': '204: No Content'}), 204
+
+# api.add_resource(Logout, '/logout')
+
+# def Logout():
+#     session['user_id'] = None
+#     return jsonify({'message': '204: No Content'}), 204
+
+
+# api.add_resource(Logout, '/logout')
+
 
 
 

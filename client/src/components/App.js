@@ -27,21 +27,25 @@ function App() {
       .then((response) => {
         if (response.ok) {
           response.json().then((user) => setUser(user));
+          
         }
       });
   }, []);
+  
 
   useEffect(() => {
     fetch('/events')
       .then((response) => {
         if (response.ok) {
           response.json().then((data) => setEvents(data));
+
         }
       });
   }, []);
 
   function handleLogin(user) {
     setUser(user);
+    console.log(user)
   }
   function handleSignup(user) {
     setUser(user);
@@ -50,10 +54,28 @@ function App() {
   function handleLogout() {
     navigate('/');
     setUser(null);
-  }
+  };
 
-
-
+    const handleAddEvent = async (eventData) => {
+      try {
+        const response = await fetch('/events', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...eventData}), // Include userId in the request body
+        });
+  
+        if (response.ok) {
+          console.log("Event Created Succssefully")
+        } else {
+          // Handle errors (e.g., show an error message)
+        }
+      } catch (error) {
+        console.error('Error adding event:', error);
+      }
+    }
+    
   return (
     <>
       <NavBar user={user} onLogout={handleLogout} />
@@ -61,9 +83,10 @@ function App() {
         <Route path="/" element={<Home user={user} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
-        <Route path="/add-events" element={<EventForm />} />
-        <Route path="/about" element={<AboutUs />} /> {/* Add the About Us route */}
+        <Route path="/add-events" element={<EventForm onAddEvent={handleAddEvent}/>} />
+        <Route path="/about" element={<AboutUs />} /> 
         <Route path="/events" element={<Events />} /> 
+        <Route path="/my-tickets" element={<MyTickets />} />
    
         
       </Routes>

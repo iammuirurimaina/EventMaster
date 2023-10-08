@@ -25,18 +25,19 @@ function EventCard({ event, userId, onBuyTickets }) {
       .then(response => response.json())
       .then(data => {
         console.log(data.message); // Handle success message if needed
-        // Call the onBuyTickets callback to refresh the MyTickets component
+        alert("Ticket Bought Successfully")
+        
         onBuyTickets();
       })
       .catch(error => {
         console.error('Error buying tickets:', error);
-        // Handle error if needed
+        
       });
   };
 
   return (
     <div>
-      <div className="card">
+      <div id='card' className="card">
         <img src={event.image_url} className="card-img-top" alt="Event" />
         <div className="card-body">
           <h3 className="card-title">{event.name}</h3>

@@ -8,7 +8,7 @@ function MyTickets({ user }) {
     const fetchTickets = () => {
       if (user) {
         // Fetch user's tickets from the backend
-        fetch(`/api/users/${user.id}/tickets`)
+        fetch(`/ticket/<int:id>`)
           .then((response) => {
             if (response.ok) {
               return response.json();
