@@ -2,7 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./App.css"
 
-function NavBar({ user, onLogout }) {
+function NavBar({ user, onLogout}) {
+
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout());
+  }
+
+
   return (
     <div id="Navbar">
       <nav class="Nav">
@@ -32,16 +40,16 @@ function NavBar({ user, onLogout }) {
               EventForm
             </Link>
             </li>
-            {/* <li>
+            <li>
           
           <Link to="/my-tickets" >
             MyTickets
           </Link>
-          </li> */}
+          </li>
             
             <li>
             <button
-              onClick={onLogout}
+              onClick={handleLogout}
               
             >
               Logout
