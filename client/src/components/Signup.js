@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import './signup.css'
 
 function Signup({ onSignup }) {
   const navigate = useNavigate();

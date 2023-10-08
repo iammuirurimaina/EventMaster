@@ -1,0 +1,31 @@
+
+.login_link {
+    background-color: green;
+    color: white;
+    display: inline-block;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    display: inline-block;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.input-fields {
+    
+}

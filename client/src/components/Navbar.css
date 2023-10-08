@@ -1,0 +1,19 @@
+.Nav {
+    display: flexbox;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: white;
+    text-align: center;
+    background-color: white;
+    padding-left: 0%;
+    padding-bottom: 2%;
+    text-decoration-color: black;
+
+}
+
+/* .Nav:hover {
+    background-color: black;
+} */
+
