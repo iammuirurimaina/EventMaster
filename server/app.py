@@ -1,5 +1,6 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify,session
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_restful import Api, Resource
 
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -7,9 +8,11 @@ from flask_cors import CORS
 from models import db, Event, User,Ticket
 
 app = Flask(__name__)
+app.secret_key = "super secret key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+api = Api(app)
 CORS(app)
 
 
@@ -54,10 +57,26 @@ def login():
 
     user = User.query.filter_by(username=username).first()
 
+
     if not user or user.password != password:
         return jsonify({'message': 'Invalid credentials'}), 401
+    
+    session['user_id'] = user.id
 
     return jsonify({'message': 'Login successful'}), 200
+
+class CheckSession(Resource):
+
+    def get(self):
+        user = User.query.filter(User.id == session.get('user_id')).first()
+        if user:
+            return jsonify(user.id)
+        else:
+            return jsonify({'message': '401: Not Authorized'}), 401
+
+api.add_resource(CheckSession, '/check_session')
+
+
 
 
 # Get All Events
@@ -78,6 +97,9 @@ def get_events():
         event_list.append(event_data)
 
     return make_response(jsonify(event_list), 200)
+
+
+
 
 # Get Single Event
 @app.route('/events/<int:event_id>', methods=['GET'])

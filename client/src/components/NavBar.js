@@ -11,9 +11,7 @@ function NavBar({ user, onLogout }) {
           Home
         </Link>
         </div>
-        <ul id="links">
-
-          
+        <ul id="links"> 
         <li>
         <Link to="/events" >
           Events
@@ -30,10 +28,17 @@ function NavBar({ user, onLogout }) {
           <>
             <li>
           
-            <Link to="/my-tickets" >
-              MyTickets
+            <Link to="/add-events" >
+              EventForm
             </Link>
             </li>
+            {/* <li>
+          
+          <Link to="/my-tickets" >
+            MyTickets
+          </Link>
+          </li> */}
+            
             <li>
             <button
               onClick={onLogout}

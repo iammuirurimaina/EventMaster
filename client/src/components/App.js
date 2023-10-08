@@ -12,6 +12,7 @@ import Home from './Home';
 import AboutUs from './AboutUs';
 import DisplayEvents from './DisplayEvents';
 import Events from './Events';
+import EventForm from './EventForm';
 
 
 // ...
@@ -60,7 +61,7 @@ function App() {
         <Route path="/" element={<Home user={user} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
-        <Route path="/my-tickets" element={<MyTickets user={user} />} />
+        <Route path="/add-events" element={<EventForm />} />
         <Route path="/about" element={<AboutUs />} /> {/* Add the About Us route */}
         <Route path="/events" element={<Events />} /> 
    
