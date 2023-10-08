@@ -141,4 +141,4 @@ function Signup({ onSignup }) {
 
 export default Signup;
 
-// Vany( Sign up working and logs in the user)
+// Vany( Sign up working and logs in the users)
