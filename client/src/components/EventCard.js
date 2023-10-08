@@ -32,6 +32,7 @@ function EventCard({ event, userId, onBuyTickets }) {
         console.error('Error buying tickets:', error);
 
         // Vany(Buying tickets not reflecting on the database)
+        
         // Handle error if needed
       });
   };
