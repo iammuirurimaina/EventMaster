@@ -39,7 +39,7 @@ Before you begin, ensure you have met the following requirements:
 2. Change into the project directory:
 
    ```shell
-   cd client
+   cd server
    ```
 
 3. Set up the Flask backend:
@@ -47,27 +47,23 @@ Before you begin, ensure you have met the following requirements:
    - Create a virtual environment:
 
      ```shell
-     python -m venv venv
+     pipenv install
      ```
 
    - Activate the virtual environment:
 
-     - On Windows:
 
-       ```shell
-       venv\Scripts\activate
-       ```
 
      - On macOS and Linux:
 
        ```shell
-       source venv/bin/activate
+       Pipenv Shell
        ```
 
    - Install Python dependencies:
 
      ```shell
-     pip install -r requirements.txt
+     pip install
      ```
 
    - Set up the SQLite database:
@@ -104,7 +100,7 @@ Before you begin, ensure you have met the following requirements:
    npm start
    ```
 
-Your application should now be running locally. You can access it in your web browser at `http://localhost:3000`.
+Your application should now be running locally. You can access it in your web browser at `http://localhost:4000`.
 
 ## Usage
 
