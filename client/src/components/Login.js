@@ -27,12 +27,13 @@ function Login({ onLogin }) {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          console.log(user);
           if (user.error) {
             alert("Invalid username or password!");
           } else {
             onLogin(user);
-            navigate("/");
+            console.log(user.email)
+            navigate("/events");
+            
           }
         });
       }
