@@ -8,6 +8,7 @@ import MyTickets from './MyTickets';
 import Login from './Login';
 import Signup from './Signup';
 import Home from './Home';
+import Footer from './Footer';
 
 import AboutUs from './AboutUs';
 import DisplayEvents from './DisplayEvents';
@@ -90,6 +91,9 @@ function App() {
         <Route path="/about" element={<AboutUs />} /> 
         <Route path="/events" element={<Events />} /> 
         <Route path="/my-tickets" element={<MyTickets />} />
+
+        {/* Note that I am adding a global route for the Footer component*/}
+        <Route path="/*" element={<Footer />} />
    
         
       </Routes>
