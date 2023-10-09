@@ -1,0 +1,74 @@
+/* EventForm.css */
+
+  
+  /* Style the overall page */
+  #EventForm {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Center the container vertically */
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+  
+  
+  /* Style the container for the form */
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the form headings */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #Header {
+    margin: 100px;
+    margin-top: 0px;
+
+  }
+  
+  /* Style form elements */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Style form buttons */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Style button on hover */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add additional styles as needed */
+  
