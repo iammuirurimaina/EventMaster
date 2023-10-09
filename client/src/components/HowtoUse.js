@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function HowToUse() {
   return (
@@ -12,6 +13,10 @@ function HowToUse() {
         <li className="text-gray-800 mb-2">Browse the available events on the platform.</li>
         <li className="text-gray-800 mb-2">Click on an event to view details and purchase tickets.</li>
         <li className="text-gray-800 mb-2">Enjoy the event!</li>
+        <li>
+            
+
+        </li>
       </ol>
     </div>
   );

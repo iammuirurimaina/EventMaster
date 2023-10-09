@@ -12,69 +12,72 @@ function NavBar({ user, onLogout}) {
 
 
   return (
-    <div id="nav">
+    <div className="nav">
         <div className="home">
         <Link to="/" className="homebutton">
           Home
         </Link>
         </div>
 
-          <ul className="links"> 
+          
         
-            <li>
-            <Link to="/events" >
+           
+        <Link to="/events" className="link">
               Events
             </Link>
-            </li>
-            <li>
-            <Link to="/about" >
+            
+            
+            <Link to="/about" className="link">
               About
             </Link>
-            </li>
+            
             
             {user ? (
               // Display "My Tickets" and "Logout" when the user is authenticated
               <>
-                <li>
               
-                <Link to="/add-events" >
+              
+                <Link to="/add-events" className="link" >
                   EventForm
                 </Link>
-                </li>
-                <li>
               
-              <Link to="/my-tickets" >
+              
+              
+              <Link to="/my-tickets" className="link">
                 MyTickets
               </Link>
-              </li>
+              
                 
-                <li>
-                <button
+                
+                <button className="link"
                   onClick={handleLogout}
                   
                 >
                   Logout
                 </button>
-                </li>
+                
               </>
             ) : (
               // Display "Login" and "Signup" when the user is not authenticated
               <>
-              <li className="login">
-                <Link to="/login" >
+              
+                <Link to="/login" className="link" >
                   Login
                 </Link>
-                </li>
-                <li>
-                <Link to="/signup" >
+                
+                
+                <Link to="/signup" className="link" >
                   Signup
                 </Link>
-                </li>
+                
               </>
             )}
             
+
+        
+         
           
-            </ul>
+            
         
         
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./App.css"
+import "./searchBar.css"
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +15,7 @@ function SearchBar() {
   return (
   
     
-    <div className="flex items-center space-x-4">
+    <div id='search' className="flex items-center space-x-4">
       <input
         type="text"
         placeholder="Search for events..."

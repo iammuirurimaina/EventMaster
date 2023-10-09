@@ -1,14 +1,30 @@
-#nav{
+.nav{
     
     background-color: black;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    width: 100vw;
+  
+    
+
     
 
 }
 
+.link{
+    padding-left: 10px;
+    left: 50px;
+    float: right;
+    
+}
+
 .home{
-    position: absolute;
-    left: 10px;
-    top: 10px;
+    
+    left: 50px;
+    top: 30px;
 
 }
 .homebutton{

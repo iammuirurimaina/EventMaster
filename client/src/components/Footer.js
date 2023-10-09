@@ -100,7 +100,7 @@ export default function Footer() {
               </p>
               <p>
                 <MDBIcon icon="envelope" className="me-3" />
-                abdhata@outlook.com
+                group4@outlook.com
               </p>
               <p>
                 <MDBIcon icon="phone" className="me-3" /> + 254720855395
