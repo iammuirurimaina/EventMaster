@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EventForm.css';
 
 function EventForm({ onAddEvent }) {
   const [eventData, setEventData] = useState({
@@ -31,8 +32,8 @@ function EventForm({ onAddEvent }) {
   };
 
   return (
-    <div>
-      <h2>Add Event</h2>
+    <div id='EventForm'>
+      <h2 id='Header'>Add Event</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>
