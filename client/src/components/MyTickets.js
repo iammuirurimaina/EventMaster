@@ -29,9 +29,9 @@ function MyTickets() {
   return (
     <div className="my-tickets">
       <h2 className="mb-4">My Tickets</h2>
-      <ul className="list-group">
+      <ul className="row" >
         {tickets.map((ticket) => (
-          <li key={ticket.id} className="list-group-item">
+          <li key={ticket.id} className="ticket col-lg-4 col-md-6 mb-4">
             <p>Event ID: {ticket.eventId}</p>
             <p>Ticket ID: {ticket.id}</p>
             {/* Add more ticket details as needed */}

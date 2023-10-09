@@ -3,9 +3,11 @@
   
   /* Style the overall page */
   #EventForm {
+    width: 100%;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    color: #333;
+    background-image: url(https://media.istockphoto.com/id/1325369032/vector/stadium-lights-with-ground-rays.jpg?s=612x612&w=0&k=20&c=5_R3gt-zpfApEtAd6JW0aj-S0TNfBYVwjiZ0DbvDs6I=);
+    color: #cce7f3;
     margin: 0;
     padding: 0;
     display: flex; /* Center the container vertically */
@@ -18,20 +20,26 @@
   /* Style the container for the form */
   .container {
     max-width: 600px;
-    padding: 20px;
+    padding: 0px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   /* Style the form headings */
-  h1 {
+  /* h1 {
     font-size: 24px;
     margin-bottom: 20px;
+
+  } */
+  input{
+    width: 100px;
+
   }
 
+
   #Header {
-    margin: 100px;
+    margin: 30px;
     margin-top: 0px;
 
   }

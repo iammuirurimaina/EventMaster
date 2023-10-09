@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./App.css"
+import "./Navbar.css"
 
 function NavBar({ user, onLogout}) {
 
@@ -12,68 +12,73 @@ function NavBar({ user, onLogout}) {
 
 
   return (
-    <div id="Navbar">
-      <nav class="Nav">
-        <div id="home">
-        <Link to="/" className="text-red hover:text-gray-300">
+    <div id="nav">
+        <div className="home">
+        <Link to="/" className="homebutton">
           Home
         </Link>
         </div>
-        <ul id="links"> 
-        <li>
-        <Link to="/events" >
-          Events
-        </Link>
-        </li>
-        <li>
-        <Link to="/about" >
-          About
-        </Link>
-        </li>
+
+          <ul className="links"> 
         
-        {user ? (
-          // Display "My Tickets" and "Logout" when the user is authenticated
-          <>
             <li>
-          
-            <Link to="/add-events" >
-              EventForm
+            <Link to="/events" >
+              Events
             </Link>
             </li>
             <li>
-          
-          <Link to="/my-tickets" >
-            MyTickets
-          </Link>
-          </li>
+            <Link to="/about" >
+              About
+            </Link>
+            </li>
             
-            <li>
-            <button
-              onClick={handleLogout}
+            {user ? (
+              // Display "My Tickets" and "Logout" when the user is authenticated
+              <>
+                <li>
               
-            >
-              Logout
-            </button>
-            </li>
-          </>
-        ) : (
-          // Display "Login" and "Signup" when the user is not authenticated
-          <>
-          <li className="login">
-            <Link to="/login" >
-              Login
-            </Link>
-            </li>
-            <li>
-            <Link to="/signup" >
-              Signup
-            </Link>
-            </li>
-          </>
-        )}
-        </ul>
-      </nav>
-    </div>
+                <Link to="/add-events" >
+                  EventForm
+                </Link>
+                </li>
+                <li>
+              
+              <Link to="/my-tickets" >
+                MyTickets
+              </Link>
+              </li>
+                
+                <li>
+                <button
+                  onClick={handleLogout}
+                  
+                >
+                  Logout
+                </button>
+                </li>
+              </>
+            ) : (
+              // Display "Login" and "Signup" when the user is not authenticated
+              <>
+              <li className="login">
+                <Link to="/login" >
+                  Login
+                </Link>
+                </li>
+                <li>
+                <Link to="/signup" >
+                  Signup
+                </Link>
+                </li>
+              </>
+            )}
+            
+          
+            </ul>
+        
+        
+      </div>
+      
   );
 }
 

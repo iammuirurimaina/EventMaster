@@ -1,0 +1,37 @@
+#nav{
+    
+    background-color: black;
+    
+
+}
+
+.home{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+}
+.homebutton{
+    color: aliceblue;
+    background-color: red;
+    width: 100px;
+    height: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    border: 10px;
+}
+.homebutton:hover{
+    color: white;
+    background-color: hotpink;
+
+}
+
+
+.links{
+    display: flex;
+    float: right;
+    background: transparent;
+      
+}
+
+

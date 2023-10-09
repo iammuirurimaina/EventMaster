@@ -13,6 +13,7 @@ import AboutUs from './AboutUs';
 import DisplayEvents from './DisplayEvents';
 import Events from './Events';
 import EventForm from './EventForm';
+import Footer from './Footer';
 
 
 // ...
@@ -93,6 +94,7 @@ function App() {
    
         
       </Routes>
+      <Footer />
       
      
     </>
