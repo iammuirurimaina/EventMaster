@@ -75,6 +75,9 @@ function App() {
         console.error('Error adding event:', error);
       }
     }
+    // Function to handle event deletion
+
+
     
   return (
     <>

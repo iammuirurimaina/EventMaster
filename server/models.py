@@ -47,5 +47,10 @@ class Ticket(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
     price = db.Column(db.Integer, nullable=False)
 
+    user = db.relationship('User', backref='tickets', lazy=True)
+    
+
+
+
 
 

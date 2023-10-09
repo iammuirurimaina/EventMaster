@@ -1,0 +1,37 @@
+
+/* About.css */
+
+/* Set background color and text color for the entire page */
+body {
+    background-color: #f9f9f9; /* Light background color */
+    color: #333; /* Dark text color */
+  }
+  
+  /* Style headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: #007bff; /* Bootstrap primary color for headings */
+  }
+  
+  /* Style paragraphs */
+  p {
+    font-size: 18px; /* Adjust font size */
+    line-height: 1.6; /* Adjust line height for readability */
+  }
+  
+  /* Style list items */
+  ul, ol {
+    font-size: 18px; /* Adjust font size */
+  }
+  
+  /* Style links */
+  a {
+    color: #007bff; /* Bootstrap primary color for links */
+  }
+  
+  /* Style background color for code blocks */
+  code {
+    background-color: #f8f9fa; /* Bootstrap code block background color */
+  }
+  
+  /* Add more styles as needed to improve text visibility and readability */
+  

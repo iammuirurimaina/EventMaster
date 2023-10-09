@@ -9,6 +9,20 @@
 
 
 }
+.navbar-nav .nav-link {
+  text-decoration: none; /* Remove underlining */
+  color: #333; /* Default link color */
+}
+
+/* Style the navigation links on hover */
+.navbar-nav .nav-link:hover {
+  background-color: red; /* Red background on hover */
+  color: #fff; /* Text color on hover */
+}
+body{
+  height: 100vh;
+  width: 100%;
+}
 #home{
   float:left;
   color: red;
@@ -28,4 +42,29 @@ ul{
 li{
   padding: 10px;
   
+}
+
+
+/* Login.css */
+.login-container {
+ 
+  margin: 0;
+ 
+  background-size: 100vw;
+  width: 100%;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#signup{
+  margin: auto;
+  text-align: center;
+}
+#signup .card{
+  margin: auto;
+  padding: auto;
+
 }

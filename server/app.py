@@ -172,6 +172,21 @@ def update_event(event_id):
     db.session.commit()
 
     return jsonify({'message': 'Event updated successfully'}), 200
+
+@app.route('/events/<int:event_id>', methods=['DELETE'])
+def delete_event(event_id):
+    event = Event.query.get(event_id)
+
+    if not event:
+        return jsonify({'message': 'Event not found'}), 404
+
+    db.session.delete(event)
+    db.session.commit()
+
+    return jsonify({'message': 'Event deleted successfully'}), 200
+
+
+
  # Ticket Purchase route and function
 @app.route('/buy-tickets/<int:event_id>', methods=['POST'])
 def buy_tickets(event_id):
@@ -203,13 +218,30 @@ def get_ticket(id):
     if ticket:
         ticket_data = {
             'id': ticket.id,
-            'user_id': ticket.user_id,
+            'user_id': session['user_id'],
             'event_id': ticket.event_id
 
         }
         return make_response(jsonify(ticket_data), 200)
     else:
         return jsonify({'message': 'Ticket not found'}), 404
+    
+@app.route('/tickets', methods=['GET'])
+def get_tickets_by_user():
+    user_id = session.get('user_id')
+    if user_id:
+        tickets = Ticket.query.filter_by(user_id=user_id).all()
+        ticket_list = []
+        for ticket in tickets:
+            ticket_data = {
+                'id': ticket.id,
+                'eventId': ticket.event_id,  # You might want to include event details here
+            }
+            ticket_list.append(ticket_data)
+
+        return make_response(jsonify(ticket_list), 200)
+    else:
+        return jsonify({'message': 'User not logged in'}), 401
 
 # class Logout(Resource):
 #     session['user_id'] = None

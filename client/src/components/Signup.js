@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Login from "./Login";
+import "./App.css"
 
 function Signup({ onSignup }) {
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ function Signup({ onSignup }) {
   };
 
   return (
-    <div className="card">
+    <div  className=" card login-container container d-flex align-items-center justify-content-center vh-100">
       <div className="card-header">Sign Up</div>
       <div className="card-body">
         <Formik

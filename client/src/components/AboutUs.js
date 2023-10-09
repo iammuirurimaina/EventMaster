@@ -1,10 +1,13 @@
 import React from 'react';
+import './About.css'; // Custom CSS file
 
 function AboutUs() {
   return (
-    <div className="container mt-5">
-      <h1>About Us</h1>
-      <p>
+    <div className="container mt-5 text-dark">
+      {/* Bootstrap classes for headings */}
+      <h1 className="display-4 font-weight-bold">About Us</h1>
+
+      <p className="lead">
         Welcome to Event Master, your ultimate destination for revolutionizing
         the way you discover, purchase, and manage event tickets. At Event
         Master, we understand the challenges that individuals like you face when
@@ -14,8 +17,9 @@ function AboutUs() {
         tickets conveniently.
       </p>
 
-      <h2>Our Vision</h2>
-      <p>
+      {/* Bootstrap classes for headings */}
+      <h2 className="display-5 font-weight-bold">Our Vision</h2>
+      <p className="lead">
         Our vision is built on simplifying the event ticketing experience for
         you, the ticket buyer. We believe that attending events should be a
         seamless and enjoyable process right from the moment you decide to
@@ -24,8 +28,9 @@ function AboutUs() {
         exclusively to your needs.
       </p>
 
-      <h3>For Ticket Buyers</h3>
-      <ul>
+      {/* Bootstrap classes for headings */}
+      <h3 className="font-weight-bold">For Ticket Buyers</h3>
+      <ul className="list-unstyled">
         <li>
           <strong>Discover:</strong> Easily find events that match your
           interests, whether it's concerts, sports, theater, or festivals.
@@ -46,8 +51,9 @@ function AboutUs() {
         </li>
       </ul>
 
-      <h3>For Ticket Sellers</h3>
-      <ul>
+      {/* Bootstrap classes for headings */}
+      <h3 className="font-weight-bold">For Ticket Sellers</h3>
+      <ul className="list-unstyled">
         <li>
           <strong>Sell Tickets:</strong> List your tickets quickly and easily,
           reaching a vast community of potential buyers.
@@ -62,14 +68,14 @@ function AboutUs() {
         </li>
       </ul>
 
-      <p>
+      <p className="lead">
         At Event Master, we are dedicated to making the event ticket buying
         process more efficient, convenient, and enjoyable for individuals like
         you. Join us in our mission to create a centralized hub for ticket
         buyers, and experience a new era of event ticketing.
       </p>
 
-      <p>
+      <p className="lead">
         Discover, Purchase, and Manage your event tickets with ease. Welcome to
         Event Master.
       </p>

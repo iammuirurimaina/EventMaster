@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function EventCard({ event, userId, onBuyTickets }) {
+function EventCard({ event, userId, onBuyTickets, onDeleteEvent }) {
   const [numTickets, setNumTickets] = useState(1); // Number of tickets to purchase, initial value is 1
 
   const handleNumTicketsChange = (e) => {
@@ -34,6 +34,25 @@ function EventCard({ event, userId, onBuyTickets }) {
         
       });
   };
+  const handleDeleteEvent = (eventId) => {
+    // Make a DELETE request to the backend to delete the event
+    fetch(`/events/${eventId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Event deleted successfully, update the events list
+          onDeleteEvent(eventId);
+          console.log('Event deleted successfully');
+        } else {
+          console.error('Error deleting event:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting event:', error);
+      });
+  };
+
 
   return (
     <div>
@@ -54,9 +73,15 @@ function EventCard({ event, userId, onBuyTickets }) {
               onChange={handleNumTicketsChange}
             />
           </div>
+          <div id='buttons'>
+
           <button className="btn btn-primary" onClick={handleBuyTickets}>
             Buy Tickets
           </button>
+          <button className="btn btn-danger" onClick={() => handleDeleteEvent(event.id)}>
+            Delete Event
+          </button>
+          </div>
         </div>
       </div>
     </div>

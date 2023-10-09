@@ -17,6 +17,11 @@ function DisplayEvents({userId}) {
 
     fetchData();
   }, []);
+  const handleDeleteEvent = (eventId) => {
+    // Update the events list after deleting an event
+    setEvents(events.filter((event) => event.id !== eventId));
+  };
+
 
 
   return (
@@ -25,7 +30,7 @@ function DisplayEvents({userId}) {
       <div className="row">
         {events.map((event) => (
           <div key={event.id} className="col-lg-4 col-md-6 mb-4">
-            <EventCard event={event} userId={userId} />
+            <EventCard event={event} userId={userId} onDeleteEvent={handleDeleteEvent}/>
           </div>
         ))}
       </div>
