@@ -1,59 +1,26 @@
-/* About.css */
+/* about.css */
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(to bottom, #3498db, #9b59b6);
-  color: #ffd700; /* Gold */
+  display: flex; /* Use flexbox to arrange content horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #fdf6e3; /* Warm Beige */
+  color: #6c5104; /* Brown */
 }
 
-.display-4 {
-  font-size: 2.5rem;
-  color: #000; /* Black */
-  margin-bottom: 20px;
+.content {
+  flex: 1; /* Allow content to grow and fill available space */
+  padding-right: 20px; /* Add some spacing between image and content */
 }
 
-.display-5 {
-  font-size: 2rem;
-  color: #555;
-  margin-top: 30px;
-  margin-bottom: 15px;
+.image {
+  flex: 1; /* Allow image to grow and fill available space */
+  text-align: center; /* Center image horizontally */
 }
 
-.font-weight-bold {
-  font-weight: bold;
-  color: #ffd700; /* Gold */
-}
-
-.lead {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: #000; /* Black */
-  margin-bottom: 20px;
-}
-
-ul {
-  margin-top: 10px;
-}
-
-.list-unstyled {
-  list-style: none;
-  padding-left: 0;
-}
-
-.list-unstyled li {
-  margin-bottom: 10px;
-  color: #eee;
-}
-
-.list-unstyled li strong {
-  font-weight: bold;
-  color: #ffd700; /* Gold */
-}
-
-.list-unstyled li:before {
-  content: "•";
-  color: #ffd700; /* Gold */
-  margin-right: 10px;
+img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain the image's aspect ratio */
 }

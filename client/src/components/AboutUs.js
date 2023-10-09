@@ -5,7 +5,11 @@ function AboutUs() {
   return (
     <div className="container mt-5 text-dark">
       {/* Bootstrap classes for headings */}
+     
+      <div className='content'>
+
       <h1 className="display-4 font-weight-bold">About Us</h1>
+
 
       <p className="lead">
         Welcome to Event Master, your ultimate destination for revolutionizing
@@ -29,7 +33,7 @@ function AboutUs() {
       </p>
 
       {/* Bootstrap classes for headings */}
-      <h3 className="font-weight-bold">For Ticket Buyers</h3>
+      {/* <h3 className="font-weight-bold">For Ticket Buyers</h3>
       <ul className="list-unstyled">
         <li>
           <strong>Discover:</strong> Easily find events that match your
@@ -52,7 +56,7 @@ function AboutUs() {
       </ul>
 
       {/* Bootstrap classes for headings */}
-      <h3 className="font-weight-bold">For Ticket Sellers</h3>
+      {/* <h3 className="font-weight-bold">For Ticket Sellers</h3>
       <ul className="list-unstyled">
         <li>
           <strong>Sell Tickets:</strong> List your tickets quickly and easily,
@@ -66,7 +70,7 @@ function AboutUs() {
           <strong>Transfer Tickets:</strong> Seamlessly transfer tickets to
           buyers, ensuring a smooth and secure transaction.
         </li>
-      </ul>
+        </ul>  */}
 
       <p className="lead">
         At Event Master, we are dedicated to making the event ticket buying
@@ -79,6 +83,12 @@ function AboutUs() {
         Discover, Purchase, and Manage your event tickets with ease. Welcome to
         Event Master.
       </p>
+
+      </div>
+      <div className='image'>
+        <img src='https://images.unsplash.com/photo-1509824227185-9c5a01ceba0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1430&q=80' 
+        alt="conerct"/>
+      </div>
     </div>
   );
 }
